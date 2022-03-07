@@ -1,10 +1,10 @@
 import React from "react";
-import Tags from "../../Components/Tags";
+import RoadMap from "../../Components/RoadMap";
 
 function Home() {
   return (
     <div>
-      <Tags />
+      <RoadMap />
     </div>
   );
 }
