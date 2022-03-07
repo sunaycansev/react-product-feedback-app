@@ -1,10 +1,12 @@
 import React from "react";
-import RoadMap from "../../Components/RoadMap";
+import Layout from "../../Layout/Layout";
 
 function Home() {
   return (
-    <div>
-      <RoadMap />
+    <div className="">
+      <Layout>
+        <div>hello</div>
+      </Layout>
     </div>
   );
 }

@@ -2,7 +2,7 @@ import React from "react";
 
 function RoadMap() {
   return (
-    <div className="w-64 h-36 bg-white p-4 shadow-xl rounded-lg p-5">
+    <div className="w-64 h-36 bg-white  shadow-xl rounded-lg p-5">
       <div className="flex justify-between">
         <div className="font-bold text-lg">Roadmap</div>
         <div className="text-sm text-blue-700 font-bold underline hover:cursor-pointer">
