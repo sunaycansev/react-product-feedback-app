@@ -5,7 +5,7 @@ import Layout from '../../Layout/Layout'
 
 function Home() {
   return (
-    <div className="">
+    <div>
       <Layout>
         <div>
           <Header />
