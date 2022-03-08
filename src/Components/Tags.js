@@ -8,7 +8,7 @@ function Tags() {
         {categories.map((category) => (
           <button
             key={category}
-            className="p-0.5 px-3 rounded-lg bg-sky-100 mx-2 my-1 text-sm text-blue-500 font-bold h-7 hover:bg-blue-200 hover:cursor-pointer ease-in-out duration-300"
+            className="p-0.5 px-3 rounded-lg bg-sky-100 mx-2 my-1 text-sm text-blue-500  h-7 hover:bg-blue-200 hover:cursor-pointer ease-in-out duration-300"
           >
             {category}
           </button>
