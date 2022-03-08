@@ -1,21 +1,21 @@
-import React from "react";
+import React from 'react'
 
 function Tags() {
-  const categories = ["All", "UI", "UX", "Enhancement", "Bug", "Feature"];
+  const categories = ['All', 'UI', 'UX', 'Enhancement', 'Bug', 'Feature']
   return (
-    <div className="w-64 h-36 bg-white p-4 shadow-xl rounded-lg flex justify-start">
-      <div className="flex flex-wrap justify-center items-center">
+    <div className=" bg-white lg:py-5 py-5 shadow-xl rounded-lg flex justify-start h-40 lg:w-64 ">
+      <div className="flex flex-wrap justify-evenly items-center">
         {categories.map((category) => (
           <button
             key={category}
-            className="p-0.5 px-3 rounded-lg bg-sky-100 mx-2 my-1 text-sm text-blue-500  h-7 hover:bg-blue-200 hover:cursor-pointer ease-in-out duration-300"
+            className=" px-1  lg:px-4 lg:mb-2 mt-0  rounded-lg bg-sky-100 mx-2  text-sm text-blue-500  h-8 hover:bg-blue-200 hover:cursor-pointer ease-in-out duration-300"
           >
             {category}
           </button>
         ))}
       </div>
     </div>
-  );
+  )
 }
 
-export default Tags;
+export default Tags

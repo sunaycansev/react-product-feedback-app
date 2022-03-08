@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react'
 
 function RoadMap() {
   return (
-    <div className="w-64 h-36 bg-white  shadow-xl rounded-lg p-5">
+    <div className=" bg-white  shadow-xl rounded-lg px-10 py-5 h-40 lg:w-64">
       <div className="flex justify-between">
         <div className="font-bold text-lg">Roadmap</div>
         <div className="text-sm text-blue-700 font-bold underline hover:cursor-pointer">
@@ -32,7 +32,7 @@ function RoadMap() {
         <div className="font-bold">2</div>
       </div>
     </div>
-  );
+  )
 }
 
-export default RoadMap;
+export default RoadMap
