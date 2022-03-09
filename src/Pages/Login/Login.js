@@ -161,6 +161,14 @@ export default function Example() {
                         Forgot your password?
                       </Link>
                     </div>
+                    <div className="text-sm">
+                      <Link
+                        to="/signup"
+                        className="font-medium text-indigo-600 hover:text-indigo-500"
+                      >
+                        Don't you have an account?
+                      </Link>
+                    </div>
                   </div>
 
                   <div>
