@@ -1,6 +1,7 @@
 import React from 'react'
 import { Fragment, useState } from 'react'
 import { Listbox, Transition } from '@headlessui/react'
+import { ToastContainer, toast } from 'react-toastify'
 import {
   CheckIcon,
   SelectorIcon,
@@ -9,6 +10,8 @@ import {
 } from '@heroicons/react/solid'
 import { classNames } from '../../utils/index'
 import { Link } from 'react-router-dom'
+import Parse from 'parse/dist/parse.min.js'
+import { set } from 'parse/lib/browser/CoreManager'
 
 function CreateFeedback() {
   const categories = [
@@ -18,23 +21,44 @@ function CreateFeedback() {
     { id: 4, name: 'Bug' },
     { id: 5, name: 'Feature' }
   ]
-  const [selected, setSelected] = useState(categories[0])
+  const [category, setCategory] = useState(categories[0])
   const [title, setTitle] = useState('')
   const [details, setDetails] = useState('')
 
+  const resetForm = () => {
+    setCategory(categories[0])
+    setTitle('')
+    setDetails('')
+  }
   const handleSubmit = (e) => {
     e.preventDefault()
     console.log(
       'selected =>',
-      selected,
+      category,
       'title =>',
       title,
       'details =>',
       details
     )
+    addFeedback(title, details, category)
+    resetForm()
+    toast('Feedback Added!')
+  }
+
+  const addFeedback = async (title, details, category) => {
+    try {
+      const Feedback = new Parse.Object('Feedback')
+      Feedback.set('title', title)
+      Feedback.set('details', details)
+      Feedback.set('category', category.name)
+      await Feedback.save()
+    } catch (e) {
+      throw new Error(e)
+    }
   }
   return (
     <>
+      <ToastContainer />
       <div className="min-h-full flex flex-col justify-center items-center bg-gray-200   ">
         <Link to="/">
           <div className="back my-10  text-center font-extrabold text-xl flex justify-center items-center transition ease-in-out duration-500 hover:underline hover:cursor-pointer hover:translate-y-1 hover:text-fuchsia-600 ">
@@ -69,7 +93,7 @@ function CreateFeedback() {
               </div>
             </div>
             <div className="my-10">
-              <Listbox value={selected} onChange={setSelected}>
+              <Listbox value={category} onChange={setCategory}>
                 {({ open }) => (
                   <>
                     <Listbox.Label className="block text-sm font-medium text-gray-700  -mb-1">
@@ -80,7 +104,7 @@ function CreateFeedback() {
                     </small>
                     <div className="mt-1 relative">
                       <Listbox.Button className="transition ease-in duration-300 bg-zinc-100 relative w-full border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-2 text-left cursor-default focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                        <span className="block truncate">{selected.name}</span>
+                        <span className="block truncate">{category.name}</span>
                         <span className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
                           <SelectorIcon
                             className="h-5 w-5 text-gray-400"
