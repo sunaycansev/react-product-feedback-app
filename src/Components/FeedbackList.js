@@ -1,10 +1,13 @@
 import React from 'react'
 import Feedback from './Feedback'
 
-function FeedbackList() {
+function FeedbackList({ feedbacks }) {
+  console.log('feedbacks', feedbacks)
   return (
     <div className="mt-3">
-      <Feedback />
+      {feedbacks.map((feedback) => (
+        <Feedback key={feedback.id} feedback={feedback} />
+      ))}
     </div>
   )
 }
