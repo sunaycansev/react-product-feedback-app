@@ -19,6 +19,20 @@ function CreateFeedback() {
     { id: 5, name: 'Feature' }
   ]
   const [selected, setSelected] = useState(categories[0])
+  const [title, setTitle] = useState('')
+  const [details, setDetails] = useState('')
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    console.log(
+      'selected =>',
+      selected,
+      'title =>',
+      title,
+      'details =>',
+      details
+    )
+  }
   return (
     <>
       <div className="min-h-full flex flex-col justify-center items-center bg-gray-200   ">
@@ -34,7 +48,7 @@ function CreateFeedback() {
             <PlusIcon className="w-7 h-7 text-white" />
           </div>
           <h1 className="mb-7 mt-7">Create New Feedback</h1>
-          <form>
+          <form onSubmit={handleSubmit}>
             <div>
               <label
                 htmlFor="title"
@@ -45,6 +59,8 @@ function CreateFeedback() {
               <small>Add a short, descriptive headline</small>
               <div className="mt-1">
                 <input
+                  value={title}
+                  onChange={(e) => setTitle(e.target.value)}
                   type="text"
                   name="title"
                   id="title"
@@ -147,11 +163,12 @@ function CreateFeedback() {
               </small>
               <div className="mt-1">
                 <textarea
+                  value={details}
+                  onChange={(e) => setDetails(e.target.value)}
                   rows={4}
                   name="details"
                   id="details"
                   className="transition ease-in duration-300 bg-zinc-100 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
-                  defaultValue={''}
                 />
               </div>
             </div>
@@ -163,7 +180,7 @@ function CreateFeedback() {
                 Cancel
               </button>
               <button
-                type="button"
+                type="submit"
                 className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-fuchsia-600 hover:bg-violet-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
               >
                 Add Feedback

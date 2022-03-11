@@ -31,7 +31,7 @@ function useFetch(url, options) {
     // Do nothing if the url is not given
     if (!url) return
     const fetchData = async () => {
-      dispatch({ type: 'lading' })
+      dispatch({ type: 'loading' })
 
       // if a cache exist for this url, return it
       if (cache.current[url]) {
@@ -47,7 +47,7 @@ function useFetch(url, options) {
         const data = await response.json()
         cache.current[url] = data
         if (cancelRequest.current) return
-        dispatch({ type: 'error', payload: data })
+        dispatch({ type: 'fetched', payload: data })
       } catch (error) {
         if (cancelRequest.current) return
         dispatch({ type: 'error', payload: error })

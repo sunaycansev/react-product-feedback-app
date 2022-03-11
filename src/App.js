@@ -4,8 +4,15 @@ import Home from './Pages/Home/Home'
 import Login from './Pages/Login/Login'
 import NotFound from './Pages/NotFound/NotFound'
 import Signup from './Pages/Signup/Signup'
+import Parse from 'parse/dist/parse.min.js'
 
 function App() {
+  Parse.initialize(
+    process.env.REACT_APP_PARSE_APPLICATION_ID,
+    process.env.REACT_APP_PARSE_JAVASCRIPT_KEY
+  )
+  Parse.serverURL = process.env.REACT_APP_PARSE_HOST_URL
+
   return (
     <Routes>
       <Route path="/" exact element={<Home />} />
