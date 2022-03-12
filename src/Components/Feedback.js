@@ -15,9 +15,13 @@ function Feedback({ feedback }) {
           <div className="icon">
             <ChevronUpIcon className="w-7 h-7 text-blue-400 " />
           </div>
-          <div onClick={toggleUpvote} className="count font-bold">
+          <button
+            type="button"
+            onClick={toggleUpvote}
+            className="count font-bold"
+          >
             {upvotes}
-          </div>
+          </button>
         </div>
         <div className="right flex justify-between">
           <div className="flex ">

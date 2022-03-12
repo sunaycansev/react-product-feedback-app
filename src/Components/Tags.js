@@ -5,6 +5,7 @@ function Tags() {
       <div className="flex flex-wrap justify-center items-center">
         {categories.map((category) => (
           <button
+            type="button"
             key={category}
             className=" px-3  lg:px-4 lg:mb-2 mt-0  rounded-lg bg-sky-100 mx-0.5 lg:mx-2   text-sm text-blue-500  h-8 hover:bg-blue-200 hover:cursor-pointer ease-in-out duration-300"
           >

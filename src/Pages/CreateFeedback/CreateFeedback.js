@@ -9,7 +9,7 @@ import {
   ArrowLeftIcon,
 } from '@heroicons/react/solid';
 import { Link } from 'react-router-dom';
-import Parse from 'parse/dist/parse.min.js';
+import Parse from 'parse/dist/parse.min';
 import { classNames } from '../../utils/index';
 
 function CreateFeedback() {
@@ -29,6 +29,17 @@ function CreateFeedback() {
     setTitle('');
     setDetails('');
   };
+  const addFeedback = async (title, details, category) => {
+    try {
+      const Feedback = new Parse.Object('Feedback');
+      Feedback.set('title', title);
+      Feedback.set('details', details);
+      Feedback.set('category', category.name);
+      await Feedback.save();
+    } catch (e) {
+      throw new Error(e);
+    }
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(
@@ -44,17 +55,6 @@ function CreateFeedback() {
     toast('Feedback Added!');
   };
 
-  const addFeedback = async (title, details, category) => {
-    try {
-      const Feedback = new Parse.Object('Feedback');
-      Feedback.set('title', title);
-      Feedback.set('details', details);
-      Feedback.set('category', category.name);
-      await Feedback.save();
-    } catch (e) {
-      throw new Error(e);
-    }
-  };
   return (
     <>
       <ToastContainer />

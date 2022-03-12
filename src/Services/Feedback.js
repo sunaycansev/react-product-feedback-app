@@ -1,10 +1,10 @@
-import Parse from 'parse/dist/parse.min.js';
+import Parse from 'parse/dist/parse.min';
 
 export const fetchAllFeedbacks = async () => {
   const Feedback = new Parse.Object('Feedback');
   const query = new Parse.Query(Feedback);
 
-  return await query.find();
+  return query.find();
 };
 
 export const toggleUpvote = async (id, payload) => {
