@@ -1,5 +1,3 @@
-import React from 'react';
-
 function RoadMap() {
   return (
     <div className=" bg-white  shadow-xl rounded-lg px-10 py-5 h-40 lg:w-64">

@@ -1,4 +1,3 @@
-import React from 'react';
 import Tags from './Tags';
 import RoadMap from './RoadMap';
 

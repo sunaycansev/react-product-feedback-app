@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import { Fragment, useState } from 'react';
 
 import { Listbox, Transition } from '@headlessui/react';
 import { ToastContainer, toast } from 'react-toastify';

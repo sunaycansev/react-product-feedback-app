@@ -1,5 +1,3 @@
-import React from 'react';
-
 function Tags() {
   const categories = ['All', 'UI', 'UX', 'Bug', 'Enhancement', 'Feature'];
   return (
