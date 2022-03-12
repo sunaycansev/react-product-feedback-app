@@ -1,25 +1,45 @@
+import { useState } from 'react';
 import { ChevronUpIcon, ChatIcon } from '@heroicons/react/solid';
 import { Link } from 'react-router-dom';
-import { toggleUpvote } from '../Services/Feedback';
+import Parse from 'parse/dist/parse.min';
 
 function Feedback({ feedback }) {
   const { title, details, category, upvotes } = feedback.toJSON();
 
+  const [currentVoteValue, setCurrentVoteVaue] = useState(0);
+  console.log(currentVoteValue);
+
+  const toggleUpvote = async (id, payload) => {
+    const user = Parse.User.current();
+    if (user) {
+      const Feedback = new Parse.Object('Feedback');
+      Feedback.set('objectId', id);
+      Feedback.set('upvotes', payload);
+      console.log('clicked togle');
+
+      try {
+        await Feedback.save();
+      } catch (e) {
+        console.log(e);
+      }
+    } else {
+      alert('login ol');
+    }
+  };
   // const toggleFeedbackUpvote(id){
   //   const isUpvoted =
   // }
   return (
     <Link to="/">
       <div className="bg-white flex p-5 rounded-lg transition ease-in duration-300 hover:translate-y-1 shadow-md my-3">
-        <div className="upvote flex flex-col justify-center items-center bg-gray-100 rounded-2xl p-2 mr-5">
+        <div
+          onClick={() => toggleUpvote(feedback.id, true)}
+          className="upvote flex flex-col justify-center items-center bg-gray-100 rounded-2xl p-2 mr-5"
+        >
           <div className="icon">
             <ChevronUpIcon className="w-7 h-7 text-blue-400 " />
           </div>
-          <button
-            type="button"
-            onClick={toggleUpvote}
-            className="count font-bold"
-          >
+          <button type="button" className="count font-bold">
             {upvotes}
           </button>
         </div>

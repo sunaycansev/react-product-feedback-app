@@ -20,7 +20,10 @@
   },
   "plugins": ["react", "prettier"],
   "rules": {
-    "prettier/prettier": ["error", { "singleQuote": true, "parser": "flow" }],
+    "prettier/prettier": [
+      "error",
+      { "singleQuote": true, "parser": "flow", "endOfLine": "auto" }
+    ],
     "react/jsx-filename-extension": [
       "warn",
       {
@@ -40,6 +43,8 @@
     "no-return-assign": "off",
     "react/prop-types": "off",
     "no-shadow": "off",
-    "react/no-unescaped-entities": 0
+    "react/no-unescaped-entities": 0,
+    "no-unused-vars": "off",
+    "import/prefer-default-export": "off"
   }
 }

@@ -1,12 +1,16 @@
+import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import { signUp } from '../../Services/User';
 
 export default function Signup() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(email, password);
+    signUp(email, password);
+    navigate('/');
   };
   return (
     <div className="min-h-full flex">
