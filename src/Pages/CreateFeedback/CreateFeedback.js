@@ -1,17 +1,16 @@
-import React from 'react'
-import { Fragment, useState } from 'react'
-import { Listbox, Transition } from '@headlessui/react'
-import { ToastContainer, toast } from 'react-toastify'
+import React, { Fragment, useState } from 'react';
+
+import { Listbox, Transition } from '@headlessui/react';
+import { ToastContainer, toast } from 'react-toastify';
 import {
   CheckIcon,
   SelectorIcon,
   PlusIcon,
-  ArrowLeftIcon
-} from '@heroicons/react/solid'
-import { classNames } from '../../utils/index'
-import { Link } from 'react-router-dom'
-import Parse from 'parse/dist/parse.min.js'
-import { set } from 'parse/lib/browser/CoreManager'
+  ArrowLeftIcon,
+} from '@heroicons/react/solid';
+import { Link } from 'react-router-dom';
+import Parse from 'parse/dist/parse.min.js';
+import { classNames } from '../../utils/index';
 
 function CreateFeedback() {
   const categories = [
@@ -19,19 +18,19 @@ function CreateFeedback() {
     { id: 2, name: 'UX' },
     { id: 3, name: 'Enchancement' },
     { id: 4, name: 'Bug' },
-    { id: 5, name: 'Feature' }
-  ]
-  const [category, setCategory] = useState(categories[0])
-  const [title, setTitle] = useState('')
-  const [details, setDetails] = useState('')
+    { id: 5, name: 'Feature' },
+  ];
+  const [category, setCategory] = useState(categories[0]);
+  const [title, setTitle] = useState('');
+  const [details, setDetails] = useState('');
 
   const resetForm = () => {
-    setCategory(categories[0])
-    setTitle('')
-    setDetails('')
-  }
+    setCategory(categories[0]);
+    setTitle('');
+    setDetails('');
+  };
   const handleSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     console.log(
       'selected =>',
       category,
@@ -39,23 +38,23 @@ function CreateFeedback() {
       title,
       'details =>',
       details
-    )
-    addFeedback(title, details, category)
-    resetForm()
-    toast('Feedback Added!')
-  }
+    );
+    addFeedback(title, details, category);
+    resetForm();
+    toast('Feedback Added!');
+  };
 
   const addFeedback = async (title, details, category) => {
     try {
-      const Feedback = new Parse.Object('Feedback')
-      Feedback.set('title', title)
-      Feedback.set('details', details)
-      Feedback.set('category', category.name)
-      await Feedback.save()
+      const Feedback = new Parse.Object('Feedback');
+      Feedback.set('title', title);
+      Feedback.set('details', details);
+      Feedback.set('category', category.name);
+      await Feedback.save();
     } catch (e) {
-      throw new Error(e)
+      throw new Error(e);
     }
-  }
+  };
   return (
     <>
       <ToastContainer />
@@ -214,7 +213,7 @@ function CreateFeedback() {
         </div>
       </div>
     </>
-  )
+  );
 }
 
-export default CreateFeedback
+export default CreateFeedback;

@@ -1,17 +1,17 @@
-import { Routes, Route } from 'react-router-dom'
-import CreateFeedback from './Pages/CreateFeedback/CreateFeedback'
-import Home from './Pages/Home/Home'
-import Login from './Pages/Login/Login'
-import NotFound from './Pages/NotFound/NotFound'
-import Signup from './Pages/Signup/Signup'
-import Parse from 'parse/dist/parse.min.js'
+import { Routes, Route } from 'react-router-dom';
+import Parse from 'parse/dist/parse.min';
+import CreateFeedback from './Pages/CreateFeedback/CreateFeedback';
+import Home from './Pages/Home/Home';
+import Login from './Pages/Login/Login';
+import NotFound from './Pages/NotFound/NotFound';
+import Signup from './Pages/Signup/Signup';
 
 function App() {
   Parse.initialize(
     process.env.REACT_APP_PARSE_APPLICATION_ID,
     process.env.REACT_APP_PARSE_JAVASCRIPT_KEY
-  )
-  Parse.serverURL = process.env.REACT_APP_PARSE_HOST_URL
+  );
+  Parse.serverURL = process.env.REACT_APP_PARSE_HOST_URL;
 
   return (
     <Routes>
@@ -21,7 +21,7 @@ function App() {
       <Route path="/create" exact element={<CreateFeedback />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
-  )
+  );
 }
 
-export default App
+export default App;

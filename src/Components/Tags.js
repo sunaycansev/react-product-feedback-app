@@ -1,7 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 function Tags() {
-  const categories = ['All', 'UI', 'UX', 'Bug', 'Enhancement', 'Feature']
+  const categories = ['All', 'UI', 'UX', 'Bug', 'Enhancement', 'Feature'];
   return (
     <div className=" bg-white lg:py-5 py-3 shadow-xl rounded-lg flex justify-start h-40 lg:w-64 ">
       <div className="flex flex-wrap justify-center items-center">
@@ -15,7 +15,7 @@ function Tags() {
         ))}
       </div>
     </div>
-  )
+  );
 }
 
-export default Tags
+export default Tags;
