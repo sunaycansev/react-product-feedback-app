@@ -20,7 +20,6 @@ function Home() {
   useEffect(() => {
     const currentUser = fetchCurrentUser();
     setUser(currentUser);
-    debugger;
     console.log(user);
   }, [user]);
 

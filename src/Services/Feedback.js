@@ -7,4 +7,12 @@ const fetchAllFeedbacks = async () => {
   return query.find();
 };
 
-export { fetchAllFeedbacks };
+const getSingleFeedback = async (id) => {
+  // const Feedback = new Parse.Object('Feedback');
+
+  const query = new Parse.Query('Feedback');
+  // eslint-disable-next-line no-return-await
+  return await query.get(id);
+};
+
+export { fetchAllFeedbacks, getSingleFeedback };

@@ -30,7 +30,7 @@ function Feedback({ feedback }) {
   //   const isUpvoted =
   // }
   return (
-    <Link to="/">
+    <Link to={`/feedback/${feedback.id}`}>
       <div className="bg-white flex p-5 rounded-lg transition ease-in duration-300 hover:translate-y-1 shadow-md my-3">
         <div
           onClick={() => toggleUpvote(feedback.id, true)}
