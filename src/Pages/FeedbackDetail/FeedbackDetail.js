@@ -42,13 +42,33 @@ function FeedbackDetail() {
           <div className="feedback">
             <Feedback feedback={feedback} />
           </div>
-          <div className="comments">a</div>
-          <div className="add-comment">
-            <div className="add-comment_heading">a</div>
-            <div className="add-comment_textarea">a</div>
-            <div className="add-comment_bottom_container">
-              <div className="letter-count">a</div>
-              <div className="submit-btn">a</div>
+          <div className="comments bg-white rounded-lg shadow-md my-3 p-8">
+            <div className="heading">0 Comments</div>
+            <div className="comments">1</div>
+          </div>
+          <div className="add-comment bg-white rounded-lg shadow-md my-3 p-8">
+            <div className="add-comment_heading mb-3 font-semibold text-lg">
+              Add comment
+            </div>
+            <div className="add-comment_textarea">
+              <textarea
+                placeholder="Type your comment here..."
+                rows={4}
+                name="details"
+                id="details"
+                className="transition ease-in duration-300 bg-zinc-100 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
+              />
+            </div>
+            <div className="add-comment_bottom_container flex justify-between items-center mt-3">
+              <div className="letter-count">250 characters left</div>
+              <div className="submit-btn">
+                <button
+                  type="submit"
+                  className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md transition duration-300 shadow-sm text-white bg-fuchsia-600 hover:bg-violet-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                >
+                  Post Comment
+                </button>
+              </div>
             </div>
           </div>
         </div>

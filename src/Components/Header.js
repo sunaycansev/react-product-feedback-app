@@ -16,7 +16,7 @@ function Header({ user, logout }) {
   return (
     <div className="w-full h-20 bg-slate-700 rounded-2xl flex items-center justify-between">
       <div className="left-bar flex justify-between items-center">
-        <div className="suggestion flex justify-between items-center text-white mr-5">
+        <div className=" suggestion flex justify-between items-center hidden lg:flex text-white mr-5">
           <svg
             className="m-5"
             stroke="currentColor"
@@ -34,7 +34,7 @@ function Header({ user, logout }) {
         <div className="filter flex items-center m-3 text-white">
           <div>Sort By : </div>
 
-          <Menu as="div" className="relative inline-block text-left ml-1">
+          <Menu as="div" className="relative inline-block text-left ml-1 ">
             <div>
               <Menu.Button className="inline-flex justify-center w-full rounded-md   shadow-sm px-4 py-2 bg-slate-700 text-sm font-medium text-white  focus:outline-none ">
                 {sortOption}
@@ -154,15 +154,15 @@ function Header({ user, logout }) {
                 leaveFrom="transform opacity-100 scale-100"
                 leaveTo="transform opacity-0 scale-95"
               >
-                <Menu.Items className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
+                <Menu.Items className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-gray-100 z-50 ring-1 ring-black ring-opacity-5 focus:outline-none">
                   <div className="py-1">
                     <Menu.Item>
                       {({ active }) => (
                         <a
-                          href="#"
+                          href="/"
                           className={classNames(
                             active
-                              ? 'bg-gray-100 text-gray-900'
+                              ? 'bg-gray-200 text-gray-900'
                               : 'text-gray-700',
                             'block px-4 py-2 text-sm'
                           )}

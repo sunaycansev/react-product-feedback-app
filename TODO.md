@@ -10,6 +10,7 @@
 - [ ] Add comment logic to feedbacks
 - [ ] Add sorting logic
 - [ ] Edit protected routes
+- [ ] Add responsiveness to feedback.js on xs
 
 ### In Progress
 
